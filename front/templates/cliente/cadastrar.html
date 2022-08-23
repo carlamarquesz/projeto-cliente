@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD de Clientes</title>
+</head>
+<body>
+    <h1> CRUD de Clientes</h1>
+    <h1> Menu</h1>
+    <ul>
+         <li>
+             <a href="/">Home</a>
+         </li>
+        <li>
+            <a href="/clientes">Cadastro</a>
+        </li>
+     </ul>
+    <h2> Cadastrar novo cliente</h2>
+    <form method="POST" action="/clientes/cadastrar">
+        Nome: <input type="text" name="nome"><br/>
+        Idade: <input type="text" name="idade"><br/>
+        Profissão: <input type="text" name="profissao"><br/>
+        Saldo: <input type="text" name="saldo"><br/><br/>
+        <button type="submit" value="Submit">Cadastrar</button>
+    </form>
+</body>
+</html>

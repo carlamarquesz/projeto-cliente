@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD de clientes</title>
+</head>
+<body>
+    <h1> Menu</h1>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/clientes">Cadastro</a>
+        </li>
+    </ul>
+        <h1> CRUD de clientes</h1>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Profissao</th>
+            <th>Saldo</th>
+            <th>Ação</th>
+        </tr>
+
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.idade}}</td>
+            <td>{{cliente.profissao}}</td>
+            <td>{{"R$ %.f"|format(cliente.saldo)}}</td>
+            <th>
+                <a href="/clientes/editar/{{cliente.conta}}">Editar</a>
+                <a href="/clientes/excluir/{{cliente.conta}}">Excluir</a>
+            </th>
+        </tr>
+    {%endfor%}
+    </table>
+    <br/>
+    {% if prev is not none%}
+     <a href="{{prev}}">
+            <input type="button" value="<<"/>
+     </a>
+    {% else %}
+        <input type="button" value="<<" disabled/>
+    {% endif %}
+
+    <a href="{{prev}}">
+        <input type="button" value="{{page}}/{{pages}}" disabled/>
+    </a>
+
+    {% if next is not none%}
+     <a href="{{next}}">
+            <input type="button" value=">>"/>
+     </a>
+    {% else %}
+        <input type="button" value=">>" disabled/>
+    {% endif %}
+
+    <br/>
+    <br/>
+   <a href="/clientes/cadastrar">
+       <input type="button" value="Criar novo cliente">
+   </a>
+</body>
+</html>
